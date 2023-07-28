@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Benny Meisels",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 299.31,
+      "left": -208.87,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 68.36, "left": 187.99, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 326.54,
+      "left": -79.01,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -331.94,
+      "left": -603.99,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "rtc1:GND", "black", [ "h30.58", "v-68.94" ] ],
+    [ "rtc1:5V", "esp:VIN", "red", [ "h-59.43", "v108.71", "h-144.76", "v-42.72" ] ],
+    [ "rtc1:SDA", "esp:D21", "green", [ "h-44.24", "v-37.01" ] ],
+    [ "rtc1:SCL", "esp:D22", "green", [ "h-54.68", "v-77.36" ] ],
+    [ "btn1:2.r", "r1:1", "green", [ "h0" ] ],
+    [ "btn1:1.r", "esp:GND.1", "green", [ "v-0.2", "h306.87", "v186.64" ] ],
+    [ "r1:2", "esp:VIN", "green", [ "v0.92", "h7.05", "v-102.52", "h-22.18", "v-72.09" ] ],
+    [ "esp:D2", "r1:1", "green", [ "h49.25", "v150.49", "h-229.91" ] ],
+    [ "keypad1:R1", "esp:D13", "green", [ "v0" ] ],
+    [ "keypad1:R2", "esp:D12", "green", [ "v0" ] ],
+    [ "keypad1:R3", "esp:D14", "green", [ "v0" ] ],
+    [ "keypad1:R4", "esp:D27", "green", [ "v0" ] ],
+    [ "keypad1:C1", "esp:D26", "green", [ "v0" ] ],
+    [ "keypad1:C2", "esp:D25", "green", [ "v0" ] ],
+    [ "keypad1:C3", "esp:D33", "green", [ "v0" ] ],
+    [ "keypad1:C4", "esp:D32", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
